@@ -14,7 +14,7 @@ public class Task {
     private String description;
     private boolean completed;
 
-    // Constructor vacío (OBLIGATORIO)
+    // Constructor vacío
     public Task() {}
 
     // Getters y Setters

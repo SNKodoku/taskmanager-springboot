@@ -14,25 +14,25 @@ public class TaskController {
     @Autowired
     private TaskRepository taskRepository;
 
-    // ✅ 1. GET all
+    // GET all
     @GetMapping
     public List<Task> getAllTasks() {
         return taskRepository.findAll();
     }
 
-    // ✅ 2. GET by id
+    // GET by id
     @GetMapping("/{id}")
     public Task getTaskById(@PathVariable Long id) {
         return taskRepository.findById(id).orElse(null);
     }
 
-    // ✅ 3. POST
+    // POST
     @PostMapping
     public Task createTask(@RequestBody Task task) {
         return taskRepository.save(task);
     }
 
-    // ✅ 4. PUT
+    // PUT
     @PutMapping("/{id}")
     public Task updateTask(@PathVariable Long id, @RequestBody Task taskDetails) {
         Task task = taskRepository.findById(id).orElse(null);
@@ -47,7 +47,7 @@ public class TaskController {
         return null;
     }
 
-    // ✅ 5. DELETE
+    // DELETE
     @DeleteMapping("/{id}")
     public void deleteTask(@PathVariable Long id) {
         taskRepository.deleteById(id);
