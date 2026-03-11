@@ -11,13 +11,21 @@ public class Task {
     private Long id;
 
     private String title;
+
     private String description;
+
     private boolean completed;
 
-    // Constructor vacío
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
     public Task() {}
 
-    // Getters y Setters
     public Long getId() {
         return id;
     }
@@ -48,5 +56,21 @@ public class Task {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
